@@ -497,9 +497,111 @@ h1 {
   pointer-events: none;
   transition: opacity 0.7s ease-in-out;
   z-index: 9999;
+  color: #FFFFFF;
 }
 
 /* Активный режим затемнения */
 .dark-overlay.active {
   opacity: 1;
+}
+
+/* Лоадер */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    z-index: 1000;
+    transition: opacity 0.8s ease;
+}
+
+.loader {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    filter: contrast(110%);
+}
+
+.geometric-core {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    animation: pulse-loader 3s ease-in-out infinite;
+}
+
+.hex-path {
+    fill: none;
+    stroke: #8a2be2;
+    stroke-width: 2;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: draw-loader 6s linear infinite;
+    animation-fill-mode: forwards;
+}
+
+.dynamic-fill {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: 7.5%;
+    left: 7.5%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(45deg, transparent 30%, #8a2be215);
+    animation: gradient-flow-loader 2s linear infinite;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #8a2be2;
+    font-family: monospace;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px #8a2be2;
+    white-space: nowrap;
+}
+
+@keyframes draw-loader {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes gradient-flow-loader {
+    to { background-position: 200% 200%; }
+}
+
+@keyframes pulse-loader {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(0.98); opacity: 0.6; }
+}
+
+/* Стили для основного контента */
+#content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    /* Изначально контент смещён вниз и невидим */
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+#content.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Плавное исчезновение загрузчика */
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
