@@ -292,7 +292,7 @@ h1 {
     height: 200px;
     transform-style: preserve-3d;
     transform: translateZ(50px) rotateX(0deg) rotateY(0deg);
-    
+    margin-top: 100px;
   }
   
   /* Грани куба */
@@ -376,3 +376,130 @@ h1 {
     50% { border-color: transparent; }
   }
   
+  .glitch-btn {
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 18px;
+  color: #ffffff;
+  background: transparent;
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  margin-top: 50px;
+  border-radius: 25%;
+}
+
+/* Анимация прыгающих букв (только при hover) */
+.glitch-btn span {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+@keyframes letterJump {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-5px); }
+  50%  { transform: translateY(3px); }
+  75%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+/* Мега глитч при наведении */
+.glitch-btn:hover {
+  animation: megaGlitch 0.1s infinite, colorShift 3s linear infinite;
+  box-shadow:
+    0 0 10px #f00,
+    0 0 20px #0ff,
+    0 0 40px #f0f,
+    0 0 80px #0ff;
+}
+
+/* Дикий глитч при наведении */
+@keyframes megaGlitch {
+  0%   { transform: translate(0); }
+  10%  { transform: translate(-5px, -5px) scale(0.95); }
+  20%  { transform: translate(6px, 6px) rotate(1deg); }
+  30%  { transform: translate(-6px, 4px) skew(5deg); }
+  40%  { transform: translate(5px, -5px); }
+  50%  { transform: translate(-4px, 3px); }
+  60%  { transform: translate(7px, 7px); }
+  70%  { transform: translate(-7px, 5px); }
+  80%  { transform: translate(3px, -3px); }
+  90%  { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
+
+/* Включаем анимацию букв только при наведении */
+.glitch-btn:hover span {
+  animation: letterJump 0.2s infinite;
+}
+
+/* Цветные слои с переливами */
+.glitch-btn::before,
+.glitch-btn::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+  animation: colorShift 2s linear infinite;
+}
+
+/* Красный/розовый слой */
+.glitch-btn::before {
+  color: red;
+  text-shadow: 3px 0 #f0f;
+  transform: translateX(-3px);
+  animation-delay: 0.2s;
+}
+
+/* Бирюзовый/синий слой */
+.glitch-btn::after {
+  color: cyan;
+  text-shadow: -3px 0 #0ff;
+  transform: translateX(3px);
+  animation-delay: 0.4s;
+}
+
+/* Радужный перелив */
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg) brightness(1.2); }
+  25% { filter: hue-rotate(90deg) brightness(1.1); }
+  50% { filter: hue-rotate(180deg) brightness(1.3); }
+  75% { filter: hue-rotate(270deg) brightness(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(1.1); }
+}
+
+/* Показываем цветные слои только при ховере */
+.glitch-btn:hover::before,
+.glitch-btn:hover::after {
+  opacity: 0.6;
+}
+
+/* === Затемняющий слой === */
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1); /* можно менять прозрачность */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease-in-out;
+  z-index: 9999;
+}
+
+/* Активный режим затемнения */
+.dark-overlay.active {
+  opacity: 1;
+}

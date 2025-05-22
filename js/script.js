@@ -83,3 +83,8 @@ document.addEventListener('mousemove', function (e) {
 setTimeout(() => {
     cube.style.animation = 'rotate 30s infinite linear';
 }, 1000);
+
+document.querySelector('.glitch-btn').addEventListener('click', function(e) {
+  e.preventDefault(); // предотвращает переход по ссылке
+  document.querySelector('.dark-overlay').classList.add('active');
+});
