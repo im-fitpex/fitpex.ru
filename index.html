@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fitpex Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="pagePiling.js plugin by Alvaro Trigo." />
+    <meta name="keywords"
+        content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery" />
+    <meta name="Resource-type" content="Document" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css "
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" />
+    <link rel="stylesheet" type="text/css" href="styles/jquery.pagepiling.css" />
+    <link rel="stylesheet" type="text/css" href="examples.css" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com ">
+    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono :ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <!-- END -->
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+</head>
+
+<body>
+    <div id="callbacksDiv">
+        <div id="pagepiling">
+            <!-- HUD -->
+            <div id="hud">
+                <i class="fa-regular fa-circle-up" id="up"></i>
+                <i class="fa-regular fa-circle-down" id="down"></i>
+                <button id="menuButton"><i class="fa-solid fa-bars" id="menu"></i></button>
+                <div id="sideMenu" class="side-menu">
+                    <a href="#" class="close-btn">&times;</a>
+                    <a href="#">Ссылка 1</a>
+                    <a href="#">Ссылка 2</a>
+                    <a href="#">Ссылка 3</a>
+                </div>
+            </div>
+
+            <!-- HEADLINE -->
+            <div class="section" id="s1">
+                <div class="mainText">
+                    Fitpex
+                    <!-- <img src="logo.png" class="logo"> -->
+                </div>
+                <p class="secondaryText">
+                    An aspiring developer and information security specialist. On this site you can find information
+                    about me and my projects.
+                </p>
+            </div>
+
+            <!-- MY SKILLS -->
+            <div class="section" id="s2">
+                <h1 style="color: white; margin-left: 9%; margin-bottom: 15px;">My skills <i
+                        class="fa-solid fa-folder-open" style="color: white;"></i></h1>
+                <div class="skills-wrapper">
+                    <div class="cell" onclick="toggleCell(this)">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Programming</h3><i class="fa-solid fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>🐍 Python - advanced level</p>
+                                <p>🐼 C# - basic level</p>
+                                <p>👴 C++ - basic level</p>
+                                <p>💩 FrontEnd - just4fun</p>
+                                <i class="fa-solid fa-code" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Cyber Security</h3><i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>🤯 Self learning since 2018</p>
+                                <p>🗝️ Basics of Cryptography</p>
+                                <p>☣️ Basic web vulnerabilities</p>
+                                <p>⚠️ Most popular exploits</p>
+                                <p>🚩 CTF Enjoyer :)</p>
+                                <i class="fa-solid fa-shield-halved" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Design</h3><i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>Honestly - I'm a total zero in design. You've probably seen that for yourself. 🤗</p>
+                                <i class="fa-solid fa-pen-ruler" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cell" onclick="toggleCell(this)">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Game Development</h3><i class="fa-solid fa-dice"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>I'm still just starting to dive into gamedev. However, I have already made some
+                                    simple games with Unity and UnrealEngine 4. I will post them on github soon. Maybe
+                                    :)</p>
+                                <i class="fa-solid fa-dice" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Communication</h3><i class="fa-solid fa-globe"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>I am a fairly outgoing person, able to articulate my thoughts in a relatively clear
+                                    manner. Moreover, I have a sufficient level of English for communication.</p>
+                                <i class="fa-solid fa-globe" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="front">
+                            <div class="centeredDiv">
+                                <h3>Cooming Soon</h3><i class="fa-regular fa-comment-dots"></i>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="centeredDiv">
+                                <p>Cooming Soon</p>
+                                <i class="fa-regular fa-comment-dots" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- MY PROJECTS -->
+            <div class="section" id="s3">
+                <div class="cubeDiv">
+                    <div class="cube-container">
+                        <div class="cube">
+                            <div class="face front"></div>
+                            <div class="face back"></div>
+                            <div class="face right"></div>
+                            <div class="face left"></div>
+                            <div class="face top"></div>
+                            <div class="face bottom"></div>
+                        </div>
+                    </div>
+                    <div class="text">Welcome to My Portfolio</div>
+                </div>
+            </div>
+            <!-- CONTACT ME -->
+            <div class="section" id="s4">
+                <div class="contactMeHeader">
+                    <h1 style="margin-top: 5px; margin-left: 15px;">Contact me</h1>
+                    <div class="contactMeBlock"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+
+</html>
