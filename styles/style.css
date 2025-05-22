@@ -11,24 +11,15 @@ html{
     height: 100%;
 }
 
-#up{
-    position: absolute;
-    top: 30%;
-    right: 15px;
-    z-index: 999;
-    display: block;
+#menuButton {
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
     font-size: 20pt;
-
-}
-
-#down{
-    position: absolute;
-    bottom: 30%;
-	right: 15px;
-    z-index: 999;
-    display: block;
-    font-size: 20pt;
-
 }
 
 #menu{
@@ -39,17 +30,27 @@ html{
     top: 25px;
     color: #FFFFFF;
     font-size: 20pt;
+    width: 30px;
 }
 
-#menuButton {
-    top: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 16px;
+#up{
+    position: absolute;
+    top: 30%;
+    right: 15px;
+    z-index: 999;
+    display: block;
+    font-size: 20pt;
+    width: 30px;
+}
+
+#down{
+    position: absolute;
+    bottom: 30%;
+	right: 15px;
+    z-index: 999;
+    display: block;
+    font-size: 20pt;
+    width: 30px;
 }
 
 .side-menu {
@@ -58,7 +59,7 @@ html{
     position: fixed;
     top: 0;
     right: -250px;
-    background-color: #121212;
+    background-color: #0c0a0a;
     overflow-x: hidden;
     transition: transform 0.5s ease;
     padding-top: 60px;
