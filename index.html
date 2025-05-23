@@ -37,12 +37,58 @@
             <div id="hud">
                 <button id="menuButton"><i class="fa-solid fa-bars" id="menu"></i></button>
                 <div id="sideMenu" class="side-menu">
-                    <a href="#" class="close-btn">&times;</a>
-                    <a href="#page1">Home</a>
-                    <a href="#page2">My skills</a>
-                    <a href="#page3">My portfolio</a>
-                    <a href="#page4">Contact me</a>
-                </div>
+    <div class="menu-header">
+        <div class="user-profile">
+            <div class="avatar"></div>
+            <span class="username">Welcome!</span>
+        </div>
+        <button class="close-btn">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+        </button>
+    </div>
+    <nav class="menu-nav">
+        <a href="#page1" class="nav-item">
+            <svg viewBox="0 0 24 24" class="nav-icon">
+                <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="#page2" class="nav-item">
+            <svg viewBox="0 0 24 24" class="nav-icon">
+                <path fill="currentColor" d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z" />
+            </svg>
+            <span>My Skills</span>
+        </a>
+        <a href="#page3" class="nav-item">
+            <svg viewBox="0 0 24 24" class="nav-icon">
+                <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+            </svg>
+            <span>Portfolio</span>
+        </a>
+        <a href="#page4" class="nav-item">
+            <svg viewBox="0 0 24 24" class="nav-icon">
+                <path fill="currentColor" d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
+            </svg>
+            <span>Contact Me</span>
+        </a>
+    </nav>
+    <div class="menu-footer">
+        <div class="social-links">
+            <a href="#" class="social-icon"></a>
+            <a href="#" class="social-icon"></a>
+            <a href="#" class="social-icon"></a>
+        </div>
+        <div class="theme-switcher">
+            <span>Dark Mode</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
                 <i class="fa-regular fa-circle-up" id="up"></i>
                 <i class="fa-regular fa-circle-down" id="down"></i>
             </div>
@@ -192,8 +238,8 @@
                         <div class="carousel-container">
                             <div class="carousel">
                                 <div class="card active" data-index="0">
-                                    <h3>Карточка 1</h3>
-                                    <p>Содержимое карточки 1</p>
+                                    <h3>Developing a blockchain based on the POW algorithm and creating a website that monitors its performance.</h3>
+                                    <p>As a result, I became a 2nd degree laureate in the All-Russian competition. The work was presented at a conference in Belarus by other people. The source code of the project has been lost. </p>
                                 </div>
                                 <div class="card" data-index="1">
                                     <h3>Карточка 2</h3>
@@ -208,8 +254,8 @@
                                     <p>Содержимое карточки 4</p>
                                 </div>
                                 <div class="card" data-index="4">
-                                    <h3>Карточка 5</h3>
-                                    <p>Содержимое карточки 5</p>
+                                    <h3>fitpex.ru</h3>
+                                    <p>At this point, this site is my latest project. It is up to you to evaluate it! :)</p>
                                 </div>
                             </div>
                             <div class="controls">
