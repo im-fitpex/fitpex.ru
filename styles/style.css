@@ -1022,17 +1022,14 @@ button.next {
 
 .card h3 {
     margin-top: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .card p {
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    margin-left: 5;
+    margin-right: 5;
 }
 
 .controls {
