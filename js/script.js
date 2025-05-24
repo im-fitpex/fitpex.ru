@@ -254,3 +254,48 @@ function initCarousel() {
     updateCarousel();
     window.addEventListener('resize', updateCarousel);
 }
+
+// Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const statusMessage = document.getElementById('statusMessage');
+            const submitBtn = this.querySelector('.submit-btn');
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                statusMessage.className = 'status-message status-success show';
+                statusMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = '<span>Send Message</span>';
+                submitBtn.disabled = false;
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.classList.remove('show');
+                }, 5000);
+            }, 2000);
+        });
+
+        // Add staggered animation to contact methods
+        const contactMethods = document.querySelectorAll('.contact-method');
+        contactMethods.forEach((method, index) => {
+            method.style.animationDelay = `${index * 0.2}s`;
+            method.style.animation = 'slideInLeft 0.8s ease-out forwards';
+        });
+
+        // Add floating animation to form elements
+        const formGroups = document.querySelectorAll('.form-group');
+        formGroups.forEach((group, index) => {
+            group.style.animationDelay = `${index * 0.1}s`;
+            group.style.animation = 'slideInRight 0.8s ease-out forwards';
+        });
