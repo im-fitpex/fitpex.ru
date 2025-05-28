@@ -374,11 +374,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current language based on URL
     function setCurrentLanguage() {
         const currentPath = window.location.pathname;
-        let currentLang = 'en';
+        let currentLang = '';
         
         if (currentPath.includes('/ru/')) {
             currentLang = 'ru';
-        } else if (currentPath.includes('/en/')) {
+        } else if (currentPath.includes('/')) {
             currentLang = 'en';
         }
         
