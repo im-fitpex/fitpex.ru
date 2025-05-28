@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Switch Language"
+msgstr "Переключить язык"
+
+msgid "Welcome!"
+msgstr "Добро пожаловать!"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "My Skills"
+msgstr "Мои навыки"
+
+msgid "Portfolio"
+msgstr "Портфолио"
+
+msgid "Contact Me"
+msgstr "Связаться со мной"
+
+msgid "Dark Mode"
+msgstr "Тёмная тема"
+
+msgid "An aspiring developer and information security specialist. On this site you can find information about me and my projects."
+msgstr "Начинающий разработчик и специалист по информационной безопасности. На этом сайте вы можете найти информацию обо мне и моих проектах."
+
+msgid "My skills"
+msgstr "Мои навыки"
+
+msgid "Programming"
+msgstr "Программирование"
+
+msgid "Python - advanced level"
+msgstr "Python - продвинутый уровень"
+
+msgid "C# - basic level"
+msgstr "C# - базовый уровень"
+
+msgid "C++ - basic level"
+msgstr "C++ - базовый уровень"
+
+msgid "FrontEnd - just4fun"
+msgstr "FrontEnd - для удовольствия"
+
+msgid "Cyber Security"
+msgstr "Кибербезопасность"
+
+msgid "Self learning since 2018"
+msgstr "Самообучение с 2018 года"
+
+msgid "Basics of Cryptography"
+msgstr "Основы криптографии"
+
+msgid "Basic web vulnerabilities"
+msgstr "Базовые веб-уязвимости"
+
+msgid "Most popular exploits"
+msgstr "Самые популярные эксплойты"
+
+msgid "CTF Enjoyer :)"
+msgstr "CTF Энтузиаст :)"
+
+msgid "Design"
+msgstr "Дизайн"
+
+msgid "Honestly - I'm a total zero in design. You've probably seen that for yourself. 🤗"
+msgstr "Честно говоря - я полный ноль в дизайне. Вы, вероятно, сами это видели. 🤗"
+
+msgid "Game Development"
+msgstr "Разработка игр"
+
+msgid "I'm still just starting to dive into gamedev. However, I have already made some simple games with Unity and UnrealEngine 4. I will post them on github soon. Maybe :)"
+msgstr "Я только начинаю погружаться в геймдев. Однако я уже сделал несколько простых игр на Unity и UnrealEngine 4. Скоро выложу их на github. Может быть :)"
+
+msgid "Communication"
+msgstr "Коммуникация"
+
+msgid "I am a fairly outgoing person, able to articulate my thoughts in a relatively clear manner. Moreover, I have a sufficient level of English for communication."
+msgstr "Я довольно общительный человек, способный относительно ясно выражать свои мысли. Более того, у меня достаточный уровень английского для общения."
+
+msgid "Coming Soon"
+msgstr "Скоро будет"
+
+msgid "Welcome to My Portfolio! Please click the button to load the showcase."
+msgstr "Добро пожаловать в моё портфолио! Пожалуйста, нажмите кнопку, чтобы загрузить витрину."
+
+msgid "Load"
+msgstr "Загрузить"
+
+msgid "INITIALIZING"
+msgstr "ИНИЦИАЛИЗАЦИЯ"
+
+msgid "Developing a blockchain based on the POW algorithm and creating a website that monitors its performance."
+msgstr "Разработка блокчейна на основе алгоритма POW и создание веб-сайта для мониторинга его производительности."
+
+msgid "As a result, I became a 2nd degree laureate in the All-Russian competition. The work was presented at a conference in Belarus by other people."
+msgstr "В результате я стал лауреатом 2-й степени Всероссийского конкурса. Работа была представлена на конференции в Беларуси другими людьми."
+
+msgid "VK GameBot (JS/Python)"
+msgstr "VK ИгровойБот (JS/Python)"
+
+msgid "VK gaming bot with daily usage of 300 people per day. The number of registered users was over 700. Originally written with Node JS, later it was completely redesigned in Python. Database changed from JSON to SQLite3."
+msgstr "Игровой бот ВКонтакте с ежедневным использованием 300 человек в день. Количество зарегистрированных пользователей превышало 700. Изначально написан на Node JS, позже был полностью переработан на Python. База данных изменена с JSON на SQLite3."
+
+msgid "VK ChatManager"
+msgstr "VK ЧатМенеджер"
+
+msgid "A bot for moderating large conversations in vk. Warnings, kicks and protection from spam and raid-attacks, alerts from administrators - all this was in one chatbot! The bot also counted the number of messages in the conversation and showed the top participants by messages. One of the distinctive features of the bot was the generation of contextual messages using Markov chains.\nThe project was sold. The peak number of conversations is unknown."
+msgstr "Бот для модерирования больших бесед в вк. Предупреждения, кики и защита от спама и рейд-атак, оповещения от администраторов - всё это было в одном чат-боте! Бот также подсчитывал количество сообщений в беседе и показывал топ участников по сообщениям. Одной из отличительных особенностей бота была генерация контекстных сообщений с использованием цепей Маркова.\nПроект был продан. Пиковое количество бесед неизвестно."
+
+msgid "Fitpex.ru"
+msgstr "Fitpex.ru"
+
+msgid "At this point, this site is my latest project. It is up to you to evaluate it! :)"
+msgstr "На данный момент этот сайт - мой последний проект. Вам решать, как его оценить! :)"
+
+msgid "Let's Connect"
+msgstr "Давайте свяжемся"
+
+msgid "Ready to start a project together? I'd love to hear from you. Send me a message and I'll respond as soon as possible."
+msgstr "Готовы начать проект вместе? Я хотел бы услышать от вас. Отправьте мне сообщение, и я отвечу как можно скорее."
+
+msgid "Email Me"
+msgstr "Напишите мне"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Connect professionally"
+msgstr "Профессиональные связи"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "Check out my code"
+msgstr "Посмотрите мой код"
+
+msgid "Your Name"
+msgstr "Ваше имя"
+
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Your Message"
+msgstr "Ваше сообщение"
+
+msgid "Send Message"
+msgstr "Отправить сообщение"
