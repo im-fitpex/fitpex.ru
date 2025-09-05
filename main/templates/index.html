@@ -4,7 +4,7 @@
 <head>
     {% load static %}
     {% load i18n %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery.pagepiling.css' %}">
     <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.pagepiling.min.js' %}"></script>
@@ -282,93 +282,68 @@ The project was sold. The peak number of conversations is unknown.{% endblocktra
             </div>
             <!-- CONTACT ME -->
             <div class="section" id="s4">
-        <!-- Animated Background -->
-        <div class="bg-elements">
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-        </div>
+    <!-- Animated Background -->
+    <div class="bg-elements">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
 
-        <!-- Main Content -->
-        <div class="contact-container">
-            <!-- Left Side - Contact Info -->
-            <div class="contact-info">
-                <h1 class="contact-title">{% trans "Let's Connect" %}</h1>
-                <p class="contact-subtitle">
-                    {% trans "Ready to start a project together? I'd love to hear from you. Send me a message and I'll respond as soon as possible." %}
-                </p>
+    <!-- Main Content -->
+    <div class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h1 class="contact-title">{% trans "Let's Connect" %}</h1>
+            <p class="contact-subtitle">
+                {% trans "Feel free to reach out through any of these platforms. I'll get back to you as soon as possible." %}
+            </p>
 
-                <div class="contact-methods">
-                    <div class="contact-method" onclick="window.open('mailto:your.email@example.com')">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>{% trans "Email Me" %}</h4>
-                            <p>fitpex.m@gmail.com</p>
-                        </div>
+            <div class="contact-methods">
+                <div class="contact-method" onclick="window.open('mailto:fitpex.m@gmail.com')">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-
-                    
-
-                    <div class="contact-method" onclick="window.open('https://linkedin.com/')">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>{% trans "LinkedIn" %}</h4>
-                            <p>{% trans "Connect professionally" %}</p>
-                        </div>
+                    <div class="contact-details">
+                        <h4>{% trans "Email Me" %}</h4>
+                        <p>fitpex.m@gmail.com</p>
                     </div>
+                </div>
 
-                    <div class="contact-method" onclick="window.open('https://github.com/im-fitpex')">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>{% trans "GitHub" %}</h4>
-                            <p>{% trans "Check out my code" %}</p>
-                        </div>
+                <div class="contact-method" onclick="window.open('https://linkedin.com/')">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>{% trans "LinkedIn" %}</h4>
+                        <p>{% trans "Connect professionally" %}</p>
+                    </div>
+                </div>
+
+                <div class="contact-method" onclick="window.open('https://github.com/im-fitpex')">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>{% trans "GitHub" %}</h4>
+                        <p>{% trans "Check out my code" %}</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Right Side - Contact Form -->
-            <div class="contact-form-container">
-                <form class="contact-form" id="contactForm">
-                    <div id="statusMessage" class="status-message"></div>
-                    
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="name" placeholder=" " required>
-                        <label for="name" class="form-label">{% trans "Your Name" %}</label>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" class="form-input" id="email" placeholder=" " required>
-                        <label for="email" class="form-label">{% trans "Email Address" %}</label>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="subject" placeholder=" " required>
-                        <label for="subject" class="form-label">{% trans "Subject" %}</label>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea class="form-textarea" id="message" placeholder=" " required>></textarea>
-                        <label for="message" class="form-label">{% trans "Your Message" %}</label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <span>{% trans "Send Message" %}</span>
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
+</div>
         </div>
     </div>
 </body>
-<script src="{% static 'js/script.js' %}"></script>
+<script type="module" src="{% static 'js/main.js' %}"></script>
+<!-- <script src="{% static 'js/animations.js' %}"></script>
+<script src="{% static 'js/pagepiling.js' %}"></script>
+<script src="{% static 'js/scroll-buttons.js' %}"></script>
+<script src="{% static 'js/menu.js' %}"></script>
+<script src="{% static 'js/typing.js' %}"></script>
+<script src="{% static 'js/cube.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script> -->
+
 </html>

@@ -1,0 +1,541 @@
+/* Cube Animation */
+.cubeDiv {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #f0f6fc;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.cube-container {
+    perspective: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    margin-top: 100px;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    border: 2px solid rgba(187, 134, 252, 0.8);
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.4);
+    animation: pulse 1.5s infinite alternate;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 15px rgba(187, 134, 252, 0.4);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(187, 134, 252, 0.8);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translateZ(50px) rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: translateZ(50px) rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Text Animation */
+.text {
+    font-size: 24px;
+    margin-top: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid rgba(187, 134, 252, 0.75);
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--text-width);
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Glitch Button */
+.glitch-btn {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 18px;
+    color: #f0f6fc;
+    background: transparent;
+    border: 3px solid #bb86fc;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    margin-top: 50px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.glitch-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.glitch-btn:hover {
+    animation: megaGlitch 0.1s infinite, colorShift 3s linear infinite;
+    box-shadow:
+        0 0 10px #bb86fc,
+        0 0 20px #6200ea,
+        0 0 40px #bb86fc,
+        0 0 80px #6200ea;
+}
+
+@keyframes megaGlitch {
+    0% {
+        transform: translate(0);
+    }
+    10% {
+        transform: translate(-5px, -5px) scale(0.95);
+    }
+    20% {
+        transform: translate(6px, 6px) rotate(1deg);
+    }
+    30% {
+        transform: translate(-6px, 4px) skew(5deg);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(-4px, 3px);
+    }
+    60% {
+        transform: translate(7px, 7px);
+    }
+    70% {
+        transform: translate(-7px, 5px);
+    }
+    80% {
+        transform: translate(3px, -3px);
+    }
+    90% {
+        transform: translate(-3px, 3px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes letterJump {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    75% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.glitch-btn:hover span {
+    animation: letterJump 0.2s infinite;
+}
+
+.glitch-btn::before,
+.glitch-btn::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+    animation: colorShift 2s linear infinite;
+}
+
+.glitch-btn::before {
+    color: #ff6b6b;
+    text-shadow: 3px 0 #ff6b6b;
+    transform: translateX(-3px);
+    animation-delay: 0.2s;
+}
+
+.glitch-btn::after {
+    color: #4ecdc4;
+    text-shadow: -3px 0 #4ecdc4;
+    transform: translateX(3px);
+    animation-delay: 0.4s;
+}
+
+@keyframes colorShift {
+    0% {
+        filter: hue-rotate(0deg) brightness(1.2);
+    }
+    25% {
+        filter: hue-rotate(90deg) brightness(1.1);
+    }
+    50% {
+        filter: hue-rotate(180deg) brightness(1.3);
+    }
+    75% {
+        filter: hue-rotate(270deg) brightness(1.2);
+    }
+    100% {
+        filter: hue-rotate(360deg) brightness(1.1);
+    }
+}
+
+.glitch-btn:hover::before,
+.glitch-btn:hover::after {
+    opacity: 0.6;
+}
+
+/* Floating shapes animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+/* Slide in animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(187, 134, 252, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(187, 134, 252, 0.8), 0 0 40px rgba(187, 134, 252, 0.6);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(187, 134, 252, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(187, 134, 252, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(187, 134, 252, 0);
+    }
+}
+
+/* Additional animation keyframes that were missing */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+/* Utility animation classes */
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-fadeOut {
+    animation: fadeOut 0.5s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
+}
+
+.animate-scaleOut {
+    animation: scaleOut 0.3s ease-out;
+}
+
+.animate-bounceIn {
+    animation: bounceIn 0.6s ease-out;
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.animate-ripple {
+    animation: ripple 0.6s linear;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Hover animations */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.5);
+}
+
+/* Loading animations */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+/* Spinner animation */
+.spinner {
+    border: 4px solid rgba(187, 134, 252, 0.1);
+    border-top: 4px solid #bb86fc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Wave animation */
+.wave {
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(14deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+    }
+    40% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+}

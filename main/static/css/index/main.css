@@ -1,0 +1,53 @@
+/* Main CSS file - imports all component styles */
+
+/* Base styles and typography */
+@import url('base.css');
+
+/* Navigation and HUD elements */
+@import url('navigation.css');
+
+/* Language switcher component */
+@import url('language-switcher.css');
+
+/* UI components (cards, carousel, etc.) */
+@import url('components.css');
+
+/* Animations and effects */
+@import url('animations.css');
+
+/* Loader and preloader */
+@import url('loader.css');
+
+/* Contact section styles */
+@import url('contact.css');
+
+/* Global responsive adjustments */
+@media (max-width: 768px) {
+    .mainText {
+        font-size: 36pt;
+    }
+    
+    h1 {
+        font-size: 36pt;
+    }
+    
+    .secondaryText {
+        font-size: 12pt;
+        margin: 0 5%;
+    }
+    
+    .skills-wrapper {
+        width: 95%;
+        gap: 15px;
+    }
+    
+    .cell {
+        flex: 1 1 clamp(200px, 45%, 250px);
+        height: clamp(180px, 30vw, 220px);
+    }
+    
+    .card {
+        flex: 0 0 calc(100% - 20px);
+        height: 400px;
+    }
+}
