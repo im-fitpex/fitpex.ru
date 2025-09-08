@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.utils import translation
 
 def index(request):
     return render(request, 'index.html')
+
+def nojs(request):
+    return render(request, 'nojs.html')
 
 def set_language(request):
     """Переключение языка"""

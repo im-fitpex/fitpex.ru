@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    {% load static %}
-    {% load i18n %}
-    <link rel="stylesheet" href="{% static 'css/index/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery.pagepiling.css' %}">
+  <head>
+    {% load static %} {% load i18n %}
+    <link rel="stylesheet" href="{% static 'css/index/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jquery.pagepiling.css' %}" />
     <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.pagepiling.min.js' %}"></script>
 
@@ -13,337 +11,431 @@
     <title>Fitpex</title>
     <meta name="author" content="Alvaro Trigo Lopez" />
     <meta name="description" content="pagePiling.js plugin by Alvaro Trigo." />
-    <meta name="keywords"
-        content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery" />
+    <meta
+      name="keywords"
+      content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery"
+    />
     <meta name="Resource-type" content="Document" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css "
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" />
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com ">
-    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono :ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap"
-        rel="stylesheet">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css "
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://fonts.googleapis.com/css?family=Lato:300,400,700"
+    />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com " />
+    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono :ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- END -->
 </head>
 
-<body>
+  <body>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/nojs">
+    </noscript>
+
     <div id="callbacksDiv">
-        <div id="pagepiling">
-            <!-- HUD -->
-            <div id="hud">
-                <button id="menuButton"><i class="fa-solid fa-bars" id="menu"></i></button>
-                
-                <!-- Language Switcher Button -->
-                <div id="languageSwitcher" class="language-switcher-btn">
-                    <button id="langToggle" class="lang-btn" title="{% trans 'Switch Language' %}">
-                        <span class="lang-flag">🇺🇸</span>
-                        <span class="lang-text">EN</span>
-                        <i class="fas fa-chevron-down lang-arrow"></i>
-                    </button>
-                    <div id="langDropdown" class="lang-dropdown">
-                        <a href="/" class="lang-option active" data-lang="en">
-                            <span class="lang-flag">🇺🇸</span>
-                            <span>EN</span>
-                        </a>
-                        <a href="/ru" class="lang-option" data-lang="ru">
-                            <span class="lang-flag">🇷🇺</span>
-                            <span>RU</span>
-                        </a>
-                    </div>
-                </div>
+      <div id="pagepiling">
+        <!-- HUD -->
+        <div id="hud">
+          <button id="menuButton">
+            <i class="fa-solid fa-bars" id="menu"></i>
+          </button>
 
-                <div id="sideMenu" class="side-menu">
-                    <div class="menu-header">
-                        <div class="user-profile">
-                            <div class="avatar"></div>
-                            <span class="username">{% trans "Welcome!" %}</span>
-                        </div>
-                        <button class="close-btn">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <nav class="menu-nav">
-                        <a href="#page1" class="nav-item">
-                            <svg viewBox="0 0 24 24" class="nav-icon">
-                                <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-                            </svg>
-                            <span>{% trans "Home" %}</span>
-                        </a>
-                        <a href="#page2" class="nav-item">
-                            <svg viewBox="0 0 24 24" class="nav-icon">
-                                <path fill="currentColor" d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z" />
-                            </svg>
-                            <span>{% trans "My Skills" %}</span>
-                        </a>
-                        <a href="#page3" class="nav-item">
-                            <svg viewBox="0 0 24 24" class="nav-icon">
-                                <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-                            </svg>
-                            <span>{% trans "Portfolio" %}</span>
-                        </a>
-                        <a href="#page4" class="nav-item">
-                            <svg viewBox="0 0 24 24" class="nav-icon">
-                                <path fill="currentColor" d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
-                            </svg>
-                            <span>{% trans "Contact Me" %}</span>
-                        </a>
-                    </nav>
-                    <div class="menu-footer">
-                        <div class="social-links">
-                            <a href="#" class="social-icon"></a>
-                            <a href="#" class="social-icon"></a>
-                            <a href="#" class="social-icon"></a>
-                        </div>
-                        <div class="theme-switcher">
-                            <span>{% trans "Dark Mode" %}</span>
-                            <label class="switch">
-                                <input type="checkbox" id="theme-toggle">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <i class="fa-regular fa-circle-up" id="up"></i>
-                <i class="fa-regular fa-circle-down" id="down"></i>
+          <!-- Language Switcher Button -->
+          <div id="languageSwitcher" class="language-switcher-btn">
+            <button
+              id="langToggle"
+              class="lang-btn"
+              title="{% trans 'Switch Language' %}"
+            >
+              <span class="lang-flag">🇺🇸</span>
+              <span class="lang-text">EN</span>
+              <i class="fas fa-chevron-down lang-arrow"></i>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/" class="lang-option active" data-lang="en">
+                <span class="lang-flag">🇺🇸</span>
+                <span>EN</span>
+              </a>
+              <a href="/ru" class="lang-option" data-lang="ru">
+                <span class="lang-flag">🇷🇺</span>
+                <span>RU</span>
+              </a>
             </div>
+          </div>
 
-            <!-- HEADLINE -->
-            <div class="section" id="s1">
-                <div class="mainText">
-                    Fitpex
-                    <!-- <img src="logo.png" class="logo"> -->
-                </div>
-                <p class="secondaryText">
-                    {% trans "An aspiring developer and information security specialist. On this site you can find information about me and my projects." %}
-                </p>
+          <div id="sideMenu" class="side-menu">
+            <div class="menu-header">
+              <div class="user-profile">
+                <div class="avatar"></div>
+                <span class="username">{% trans "Welcome!" %}</span>
+              </div>
+              <button class="close-btn">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                  />
+                </svg>
+              </button>
             </div>
-
-            <!-- MY SKILLS -->
-            <div class="section" id="s2">
-                <h1 style="color: white; margin-left: 10%; margin-bottom: 15px;">{% trans "My skills" %} <i
-                        class="fa-solid fa-folder-open" style="color: white;"></i></h1>
-                <div class="skills-wrapper">
-                    <div class="cell" onclick="toggleCell(this)">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Programming" %}</h3><i class="fa-solid fa-code"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>🐍 {% trans "Python - advanced level" %}</p>
-                                <p>🐼 {% trans "C# - basic level" %}</p>
-                                <p>👴 {% trans "C++ - basic level" %}</p>
-                                <p>💩 {% trans "FrontEnd - just4fun" %}</p>
-                                <i class="fa-solid fa-code" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cell">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Cyber Security" %}</h3><i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>🤯 {% trans "Self learning since 2018" %}</p>
-                                <p>🗝️ {% trans "Basics of Cryptography" %}</p>
-                                <p>☣️ {% trans "Basic web vulnerabilities" %}</p>
-                                <p>⚠️ {% trans "Most popular exploits" %}</p>
-                                <p>🚩 {% trans "CTF Enjoyer :)" %}</p>
-                                <i class="fa-solid fa-shield-halved" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cell">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Design" %}</h3><i class="fa-solid fa-pen-ruler"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>{% trans "Honestly - I'm a total zero in design. You've probably seen that for yourself. 🤗" %}</p>
-                                <i class="fa-solid fa-pen-ruler" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cell" onclick="toggleCell(this)">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Game Development" %}</h3><i class="fa-solid fa-dice"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>{% trans "I'm still just starting to dive into gamedev. However, I have already made some simple games with Unity and UnrealEngine 4. I will post them on github soon. Maybe :)" %}</p>
-                                <i class="fa-solid fa-dice" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cell">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Communication" %}</h3><i class="fa-solid fa-globe"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>{% trans "I am a fairly outgoing person, able to articulate my thoughts in a relatively clear manner. Moreover, I have a sufficient level of English for communication." %}</p>
-                                <i class="fa-solid fa-globe" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cell">
-                        <div class="front">
-                            <div class="centeredDiv">
-                                <h3>{% trans "Coming Soon" %}</h3><i class="fa-regular fa-comment-dots"></i>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="centeredDiv">
-                                <p>{% trans "Coming Soon" %}</p>
-                                <i class="fa-regular fa-comment-dots" style="color: white;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <nav class="menu-nav">
+              <a href="#page1" class="nav-item">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                  <path
+                    fill="currentColor"
+                    d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"
+                  />
+                </svg>
+                <span>{% trans "Home" %}</span>
+              </a>
+              <a href="#page2" class="nav-item">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                  <path
+                    fill="currentColor"
+                    d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"
+                  />
+                </svg>
+                <span>{% trans "My Skills" %}</span>
+              </a>
+              <a href="#page3" class="nav-item">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                  <path
+                    fill="currentColor"
+                    d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                  />
+                </svg>
+                <span>{% trans "Portfolio" %}</span>
+              </a>
+              <a href="#page4" class="nav-item">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                  <path
+                    fill="currentColor"
+                    d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"
+                  />
+                </svg>
+                <span>{% trans "Contact Me" %}</span>
+              </a>
+            </nav>
+            <div class="menu-footer">
+              <div class="social-links">
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+              </div>
+              <div class="theme-switcher">
+                <span>{% trans "Dark Mode" %}</span>
+                <label class="switch">
+                  <input type="checkbox" id="theme-toggle" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
             </div>
-            <!-- MY PROJECTS -->
-            <div class="section" id="s3">
-                <div class="cubeDiv">
-                    <div class="cube-container">
-                        <div class="cube">
-                            <div class="face front"></div>
-                            <div class="face back"></div>
-                            <div class="face right"></div>
-                            <div class="face left"></div>
-                            <div class="face top"></div>
-                            <div class="face bottom"></div>
-                        </div>
-                    </div>
-                    <div class="text">{% trans "Welcome to My Portfolio! Please click the button to load the showcase." %}</div>
-                    <a href="#" class="glitch-btn" data-text="{% trans 'Load' %}">{% trans "Load" %}</a>
-                </div>
-                <div class="dark-overlay">
-                    <!-- Загрузчик -->
-                    <div id="loader">
-                        <div class="loader">
-                            <svg class="geometric-core" viewBox="0 0 100 100">
-                                <path class="hex-path" d="M50 5 L90 30 L90 70 L50 95 L10 70 L10 30 L51 5" />
-                            </svg>
-                            <div class="dynamic-fill"></div>
-                            <div class="progress-text">{% trans "INITIALIZING" %}</div>
-                        </div>
-                    </div>
-                    <!-- Основной контент -->
-                    <div id="content">
-                        <div class="carousel-container">
-                            <div class="carousel">
-                                <div class="card active" data-index="0">
-                                    <h3>{% trans "Developing a blockchain based on the POW algorithm and creating a website that monitors its performance." %}</h3>
-                                    <p>{% trans "As a result, I became a 2nd degree laureate in the All-Russian competition. The work was presented at a conference in Belarus by other people." %}</p>
-                                </div>
-                                <div class="card" data-index="1">
-                                    <h3>{% trans "VK GameBot (JS/Python)" %}</h3>
-                                    <p>{% trans "VK gaming bot with daily usage of 300 people per day. The number of registered users was over 700. Originally written with Node JS, later it was completely redesigned in Python. Database changed from JSON to SQLite3." %}</p>
-                                </div>
-                                <div class="card" data-index="2">
-                                    <h3>{% trans "VK ChatManager" %}</h3>
-                                    <p>{% blocktrans %}A bot for moderating large conversations in vk. Warnings, kicks and protection from spam and raid-attacks, alerts from administrators - all this was in one chatbot! The bot also counted the number of messages in the conversation and showed the top participants by messages. One of the distinctive features of the bot was the generation of contextual messages using Markov chains.
-The project was sold. The peak number of conversations is unknown.{% endblocktrans %}</p>
-                                </div>
-                                <div class="card" data-index="3">
-                                    <h3>{% trans "Fitpex.ru" %}</h3>
-                                    <p>{% trans "At this point, this site is my latest project. It is up to you to evaluate it! :)" %}</p>
-                                </div>
-                            </div>
-                            <div class="controls">
-                                <button class="btn btn-prev">&#10094;</button>
-                                <div class="indicators"></div>
-                                <button class="btn btn-next">&#10095;</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- CONTACT ME -->
-            <div class="section" id="s4">
-    <!-- Animated Background -->
-    <div class="bg-elements">
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="contact-container">
-        <!-- Contact Info -->
-        <div class="contact-info">
-            <h1 class="contact-title">{% trans "Let's Connect" %}</h1>
-            <p class="contact-subtitle">
-                {% trans "Feel free to reach out through any of these platforms. I'll get back to you as soon as possible." %}
-            </p>
-
-            <div class="contact-methods">
-                <div class="contact-method" onclick="window.open('mailto:fitpex.m@gmail.com')">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>{% trans "Email Me" %}</h4>
-                        <p>fitpex.m@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-method" onclick="window.open('https://linkedin.com/')">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>{% trans "LinkedIn" %}</h4>
-                        <p>{% trans "Connect professionally" %}</p>
-                    </div>
-                </div>
-
-                <div class="contact-method" onclick="window.open('https://github.com/im-fitpex')">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>{% trans "GitHub" %}</h4>
-                        <p>{% trans "Check out my code" %}</p>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <i class="fa-regular fa-circle-up" id="up"></i>
+          <i class="fa-regular fa-circle-down" id="down"></i>
         </div>
-    </div>
-</div>
-        </div>
-    </div>
-</body>
-<script type="module" src="{% static 'js/main.js' %}"></script>
-<!-- <script src="{% static 'js/animations.js' %}"></script>
-<script src="{% static 'js/pagepiling.js' %}"></script>
-<script src="{% static 'js/scroll-buttons.js' %}"></script>
-<script src="{% static 'js/menu.js' %}"></script>
-<script src="{% static 'js/typing.js' %}"></script>
-<script src="{% static 'js/cube.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script> -->
 
+        <!-- HEADLINE -->
+        <div class="section" id="s1">
+          <div class="mainText">
+            Fitpex
+            <!-- <img src="logo.png" class="logo"> -->
+          </div>
+          <p class="secondaryText">
+            {% blocktrans trimmed %}An aspiring developer and information security specialist.
+            On this site you can find information about me and my projects.{% endblocktrans %}
+          </p>
+        </div>
+
+        <!-- MY SKILLS -->
+        <div class="section" id="s2">
+          <h1 style="color: white; margin-left: 10%; margin-bottom: 15px">
+            {% trans "My skills" %}
+            <i class="fa-solid fa-folder-open" style="color: white"></i>
+          </h1>
+          <div class="skills-wrapper">
+            <div class="cell" onclick="toggleCell(this)">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Programming" %}</h3>
+                  <i class="fa-solid fa-code"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>🐍 {% trans "Python - advanced level" %}</p>
+                  <p>🐼 {% trans "C# - basic level" %}</p>
+                  <p>👴 {% trans "C++ - basic level" %}</p>
+                  <p>💩 {% trans "FrontEnd - just4fun" %}</p>
+                  <i class="fa-solid fa-code" style="color: white"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cell">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Cyber Security" %}</h3>
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>🤯 {% trans "Self learning since 2018" %}</p>
+                  <p>🗝️ {% trans "Basics of Cryptography" %}</p>
+                  <p>☣️ {% trans "Basic web vulnerabilities" %}</p>
+                  <p>⚠️ {% trans "Most popular exploits" %}</p>
+                  <p>🚩 {% trans "CTF Enjoyer :)" %}</p>
+                  <i class="fa-solid fa-shield-halved" style="color: white"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cell">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Design" %}</h3>
+                  <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>
+                    {% blocktrans trimmed %}Honestly - I'm a total zero in design. You've
+                    probably seen that for yourself. 🤗{% endblocktrans %}
+                  </p>
+                  <i class="fa-solid fa-pen-ruler" style="color: white"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cell" onclick="toggleCell(this)">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Game Development" %}</h3>
+                  <i class="fa-solid fa-dice"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>
+                    {% blocktrans trimmed %}I'm still just starting to dive into gamedev.
+                    However, I have already made some simple games with Unity
+                    and UnrealEngine 4. I will post them on github soon. Maybe
+                    :){% endblocktrans %}
+                  </p>
+                  <i class="fa-solid fa-dice" style="color: white"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cell">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Communication" %}</h3>
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>
+                    {% blocktrans trimmed %}I am a fairly outgoing person, able to articulate
+                    my thoughts in a relatively clear manner. Moreover, I have a
+                    sufficient level of English for communication.{% endblocktrans %}
+                  </p>
+                  <i class="fa-solid fa-globe" style="color: white"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cell">
+              <div class="front">
+                <div class="centeredDiv">
+                  <h3>{% trans "Coming Soon" %}</h3>
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+              </div>
+              <div class="back">
+                <div class="centeredDiv">
+                  <p>{% trans "Coming Soon" %}</p>
+                  <i
+                    class="fa-regular fa-comment-dots"
+                    style="color: white"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MY PROJECTS -->
+        <div class="section" id="s3">
+          <div class="cubeDiv">
+            <div class="cube-container">
+              <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+              </div>
+            </div>
+            <div class="text">
+              {% blocktrans trimmed %}Welcome to My Portfolio! Please click the button to load
+              the showcase.{% endblocktrans %}
+            </div>
+            <a href="#" class="glitch-btn" data-text="{% trans 'Load' %}"
+              >{% trans "Load" %}</a
+            >
+          </div>
+          <div class="dark-overlay">
+            <!-- Загрузчик -->
+            <div id="loader">
+              <div class="loader">
+                <svg class="geometric-core" viewBox="0 0 100 100">
+                  <path
+                    class="hex-path"
+                    d="M50 5 L90 30 L90 70 L50 95 L10 70 L10 30 L51 5"
+                  />
+                </svg>
+                <div class="dynamic-fill"></div>
+                <div class="progress-text">{% trans "INITIALIZING" %}</div>
+              </div>
+            </div>
+            <!-- Основной контент -->
+            <div id="content">
+              <div class="carousel-container">
+                <div class="carousel">
+                  <div class="card active" data-index="0">
+                    <h3>
+                      {% blocktrans trimmed %}Developing a blockchain based on the POW
+                      algorithm and creating a website that monitors its
+                      performance.{% endblocktrans %}
+                    </h3>
+                    <p>
+                      {% blocktrans trimmed %}As a result, I became a 2nd degree laureate in
+                      the All-Russian competition. The work was presented at a
+                      conference in Belarus by other people.{% endblocktrans %}
+                    </p>
+                  </div>
+                  <div class="card" data-index="1">
+                    <h3>{% trans "VK GameBot (JS/Python)" %}</h3>
+                    <p>
+                      {% blocktrans trimmed %}VK gaming bot with daily usage of 300 people per
+                      day. The number of registered users was over 700.
+                      Originally written with Node JS, later it was completely
+                      redesigned in Python. Database changed from JSON to
+                      SQLite3.{% endblocktrans %}
+                    </p>
+                  </div>
+                  <div class="card" data-index="2">
+                    <h3>{% trans "VK ChatManager" %}</h3>
+                    <p>
+                      {% blocktrans trimmed %}A bot for moderating large conversations
+                      in vk. Warnings, kicks and protection from spam and
+                      raid-attacks, alerts from administrators - all this was in
+                      one chatbot! The bot also counted the number of messages
+                      in the conversation and showed the top participants by
+                      messages. One of the distinctive features of the bot was
+                      the generation of contextual messages using Markov chains.
+                      The project was sold. The peak number of conversations is
+                      unknown.{% endblocktrans %}
+                    </p>
+                  </div>
+                  <div class="card" data-index="3">
+                    <h3>{% trans "Fitpex.ru" %}</h3>
+                    <p>
+                      {% blocktrans trimmed %}At this point, this site is my latest project.
+                      It is up to you to evaluate it! :){% endblocktrans %}
+                    </p>
+                  </div>
+                </div>
+                <div class="controls">
+                  <button class="btn btn-prev">&#10094;</button>
+                  <div class="indicators"></div>
+                  <button class="btn btn-next">&#10095;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CONTACT ME -->
+        <div class="section" id="s4">
+          <!-- Animated Background -->
+          <div class="bg-elements">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+              <h1 class="contact-title">{% trans "Let's Connect" %}</h1>
+              <p class="contact-subtitle">
+                {% blocktrans trimmed %}Feel free to reach out through any of these platforms.
+                I'll get back to you as soon as possible.{% endblocktrans %}
+              </p>
+
+              <div class="contact-methods">
+                <div
+                  class="contact-method"
+                  onclick="window.open('mailto:fitpex.m@gmail.com')"
+                >
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>{% trans "Email Me" %}</h4>
+                    <p>fitpex.m@gmail.com</p>
+                  </div>
+                </div>
+
+                <div
+                  class="contact-method"
+                  onclick="window.open('https://telegram.org/')"
+                >
+                  <div class="contact-icon">
+                    <i class="fab fa-telegram"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>{% trans "Telegram" %}</h4>
+                    <p>{% trans "Connect professionally" %}</p>
+                  </div>
+                </div>
+
+                <div
+                  class="contact-method"
+                  onclick="window.open('https://github.com/im-fitpex')"
+                >
+                  <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>{% trans "GitHub" %}</h4>
+                    <p>{% trans "Check out my code" %}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="{% static 'js/main.js' %}"></script>
 </html>

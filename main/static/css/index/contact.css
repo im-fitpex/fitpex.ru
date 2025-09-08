@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 0px;
 }
 
 /* Animated Background Elements */
@@ -87,6 +87,7 @@
 .contact-info {
     color: #f0f6fc;
     animation: slideInLeft 1s ease-out;
+    margin: 50px;
 }
 
 .contact-title {
@@ -320,6 +321,11 @@
 .social-link i {
     position: relative;
     z-index: 1;
+}
+
+i {
+    font-size: 30pt;
+    margin: auto;
 }
 
 /* Status Messages */
